@@ -76,6 +76,10 @@ namespace Ejercicio1
                     {
                         Console.WriteLine("Incorrect value. Please, choose a number of the list.");
                     }
+                    catch (OverflowException)
+                    {
+                        Console.WriteLine("Invalid value.");
+                    }
                 }
             } while (!exit);
 
