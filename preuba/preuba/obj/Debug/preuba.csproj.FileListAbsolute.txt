@@ -1,0 +1,7 @@
+C:\Users\Pablo\source\repos\preuba\preuba\bin\Debug\preuba.exe.config
+C:\Users\Pablo\source\repos\preuba\preuba\bin\Debug\preuba.exe
+C:\Users\Pablo\source\repos\preuba\preuba\bin\Debug\preuba.pdb
+C:\Users\Pablo\source\repos\preuba\preuba\obj\Debug\preuba.csprojAssemblyReference.cache
+C:\Users\Pablo\source\repos\preuba\preuba\obj\Debug\preuba.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\source\repos\preuba\preuba\obj\Debug\preuba.exe
+C:\Users\Pablo\source\repos\preuba\preuba\obj\Debug\preuba.pdb

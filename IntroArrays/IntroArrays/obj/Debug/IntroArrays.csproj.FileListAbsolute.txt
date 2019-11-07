@@ -1,0 +1,7 @@
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\bin\Debug\IntroArrays.exe.config
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\bin\Debug\IntroArrays.exe
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\bin\Debug\IntroArrays.pdb
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\obj\Debug\IntroArrays.csprojAssemblyReference.cache
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\obj\Debug\IntroArrays.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\obj\Debug\IntroArrays.exe
+C:\Users\Pablo\source\repos\IntroArrays\IntroArrays\obj\Debug\IntroArrays.pdb

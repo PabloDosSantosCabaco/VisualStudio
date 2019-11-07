@@ -1,0 +1,7 @@
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\bin\Debug\Tema1Console.exe.config
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\bin\Debug\Tema1Console.exe
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\bin\Debug\Tema1Console.pdb
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\obj\Debug\Tema1Console.csprojAssemblyReference.cache
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\obj\Debug\Tema1Console.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\obj\Debug\Tema1Console.exe
+C:\Users\Pablo\source\repos\Tema1Console\Tema1Console\obj\Debug\Tema1Console.pdb
