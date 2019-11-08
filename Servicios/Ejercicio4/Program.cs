@@ -27,7 +27,6 @@ namespace Ejercicio4
             {
                 hilos[i].Start();
             }
-            Thread.Sleep(aleatorio.Next(20, 101));
             Console.ReadKey();
         }
         public static void Avanzar(int hilo)
@@ -37,17 +36,18 @@ namespace Ejercicio4
             {
                 lock (l)
                 {
-                    if (!fin && pos<meta)
+                    if (!fin)
                     {
                         pos += aleatorio.Next(1,51);
                         Console.SetCursorPosition(pos, hilo);
                         Console.Write("*");
-                    }
-                    else
-                    {
-                        fin = true;  
+                        if (pos >= meta)
+                        {
+                            fin = true;
+                        }
                     }
                 }
+                Thread.Sleep(aleatorio.Next(20, 101));
             }
         }
     }

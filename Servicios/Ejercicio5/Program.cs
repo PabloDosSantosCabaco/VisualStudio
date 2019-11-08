@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Ejercicio5
+{
+    
+    class Program
+    {
+        static int counter = 0;
+        static void increment()
+        {
+            counter++;
+            Console.WriteLine(counter);
+        }
+        static void Main(string[] args)
+        {
+            MyTimer t = new MyTimer(increment);
+            t.Intervalo = 1000;
+            string op = "";
+            do
+            {
+                Console.WriteLine("Press any key to start.");
+                Console.ReadKey();
+                t.start();
+                Console.WriteLine("Press any key to stop.");
+                Console.ReadKey();
+                t.stop();
+                Console.WriteLine("Press 1 to restart or Enter to end.");
+                op = Console.ReadLine();
+            } while (op == "1");
+        }
+
+        class MyTimer
+        {
+            public static readonly object l = new object();
+            public delegate void MyDelegate();
+            private int intervalo;
+            public int contador = 0;
+            public bool finish = false;
+            public int Intervalo { get; set; }
+            Thread hilo;
+            public MyTimer(MyDelegate del)
+            {
+                hilo = new Thread(()=>del());
+            }
+            public void start()
+            {
+                hilo.Start();
+                while (!finish)
+                {
+                    Thread.Sleep(Intervalo);
+                    lock (l)
+                    {
+                        if (!finish)
+                        {
+
+                        }
+                    }
+                }
+            }
+            public void stop()
+            {
+                finish = true;
+            }
+        }
+    }
+}
