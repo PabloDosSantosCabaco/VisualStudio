@@ -39,32 +39,46 @@ namespace Ejercicio5
             public static readonly object l = new object();
             public delegate void MyDelegate();
             private int intervalo;
-            public int contador = 0;
             public bool finish = false;
+            public bool espera = true;
             public int Intervalo { get; set; }
             Thread hilo;
             public MyTimer(MyDelegate del)
             {
-                hilo = new Thread(()=>del());
-            }
-            public void start()
-            {
-                hilo.Start();
-                while (!finish)
-                {
-                    Thread.Sleep(Intervalo);
-                    lock (l)
+                hilo = new Thread(()=>
                     {
-                        if (!finish)
+                        while (!finish)
                         {
-
-                        }
-                    }
+                            Thread.Sleep(Intervalo);
+                            lock (l)
+                            {
+                                if (finish)
+                                {
+                                    Monitor.Wait(l);
+                                }else
+                                {
+                                    del();
+                                }
+                            }
+                        };
+                    });
+                hilo.Start();
+                lock (l)
+                {
+                    Monitor.Pulse(l);
+                }
+            }
+            public void start() {
+                finish = false;
+                lock (l)
+                {
+                    Monitor.Pulse(l);
                 }
             }
             public void stop()
             {
                 finish = true;
+                
             }
         }
     }
