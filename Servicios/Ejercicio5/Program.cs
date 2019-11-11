@@ -52,7 +52,7 @@ namespace Ejercicio5
                             Thread.Sleep(Intervalo);
                             lock (l)
                             {
-                                if (finish)
+                                if (espera)
                                 {
                                     Monitor.Wait(l);
                                 }else
@@ -70,6 +70,7 @@ namespace Ejercicio5
             }
             public void start() {
                 finish = false;
+                espera = false;
                 lock (l)
                 {
                     Monitor.Pulse(l);
@@ -78,6 +79,7 @@ namespace Ejercicio5
             public void stop()
             {
                 finish = true;
+                espera = true;
                 
             }
         }
