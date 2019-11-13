@@ -10,7 +10,7 @@ namespace Tema3_Ejercicio4
     {
         static void Main(string[] args)
         {
-            string cadena = "* * 2 10";
+            string cadena = "* 3 2 10";
             string[] datos = cadena.Split((char)32);
             List<int> nums = new List<int>();
             bool correct = true;

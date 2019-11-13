@@ -11,7 +11,7 @@ namespace Ejercicio4
     class Program
     {
         static readonly private object l = new object();
-        const int cantidad = 1;
+        const int cantidad = 10;
         const int meta = 80;
         static Thread[] hilos = new Thread[cantidad];
         static int[] avances = new int[cantidad];
