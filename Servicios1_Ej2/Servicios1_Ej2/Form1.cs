@@ -13,7 +13,7 @@ namespace Servicios1_Ej2
 {
     public partial class Form1 : Form
     {
-        Process[] p;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,89 +21,33 @@ namespace Servicios1_Ej2
 
         private void BtnView_Click(object sender, EventArgs e)
         {
-            p = Process.GetProcesses();
+            txtInfo.Clear();
+            Process[] p = Process.GetProcesses();
+            txtInfo.AppendText("PID\tNombre\tTitulo ventana"+Environment.NewLine);
             for(int i=0; i<p.Length; i++)
             {
-                txtInfo.AppendText("PID: " + p[i].Id + Environment.NewLine+"Nombre: " + p[i].ProcessName + Environment.NewLine);
+                txtInfo.AppendText(p[i].Id +"\t" + p[i].ProcessName);
                 if (!p[i].MainWindowTitle.Trim().Equals(""))
                 {
-                    txtInfo.AppendText("Título ventana: " + p[i].MainWindowTitle + Environment.NewLine);
+                    txtInfo.AppendText("\t"+p[i].MainWindowTitle);
                 }
-                txtInfo.AppendText("*******" + Environment.NewLine);
+                txtInfo.AppendText(Environment.NewLine);
             }
         }
 
         private void BtnInfo_Click(object sender, EventArgs e)
         {
-            if (comprobarPID())
-            {
-                try
-                {
-                    Process proceso = Process.GetProcessById(Convert.ToInt32(txtInput.Text));
-                }
-                catch (ArgumentException)
-                {
-                    txtInfo.Clear();
-                    txtInfo.AppendText("El proceso con PID "+txtInput.Text+" no existe.");
-                }
-                catch (InvalidOperationException)
-                {
-
-                }
-                foreach (Process pr in p)
-                {
-                    if (pr.Id == Convert.ToInt32(txtInput.Text))
-                    {
-                        txtInfo.Clear();
-                        txtInfo.AppendText("Id: "+pr.Id+Environment.NewLine+"Nombre: "+pr.ProcessName+Environment.NewLine+"Comienzo: "+pr.StartTime);
-                        txtInfo.AppendText(Environment.NewLine+"Tiempo total: "+pr.TotalProcessorTime+Environment.NewLine);
-                        if (pr.Threads.Count > 0)
-                        {
-                            for(int i=0; i<pr.Threads.Count; i++)
-                            {
-                                txtInfo.AppendText("********");
-                                txtInfo.AppendText("ID del subproceso " + (i + 1) + ":" + pr.Threads[i].Id + Environment.NewLine);
-                                txtInfo.AppendText("Estado: " + pr.Threads[i].ThreadState + Environment.NewLine);
-                                txtInfo.AppendText("Inicio: " + pr.Threads[i].StartTime + Environment.NewLine);
-                            }
-                        }
-                    }
-                }
-            }
+            actividadBtn("info");
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            if (comprobarPID())
-            {
-                foreach (Process pr in p)
-                {
-                    if (pr.Id == Convert.ToInt32(txtInput.Text))
-                    {
-                        txtInfo.Clear();
-                        txtInfo.AppendText("Id: " + pr.Id + Environment.NewLine + "Nombre: " + pr.ProcessName + Environment.NewLine + "Comienzo: " + pr.StartTime+Environment.NewLine);
-                        pr.Close();
-                        txtInfo.AppendText("Programa cerrado.");
-                    }
-                }
-            }
+            actividadBtn("close");
         }
 
         private void BtnKill_Click(object sender, EventArgs e)
         {
-            if (comprobarPID())
-            {
-                foreach (Process pr in p)
-                {
-                    if (pr.Id == Convert.ToInt32(txtInput.Text))
-                    {
-                        txtInfo.Clear();
-                        txtInfo.AppendText("Id: " + pr.Id + Environment.NewLine + "Nombre: " + pr.ProcessName + Environment.NewLine + "Comienzo: " + pr.StartTime + Environment.NewLine);
-                        pr.Kill();
-                        txtInfo.AppendText("Programa muerto.");
-                    }
-                }
-            }
+            actividadBtn("kill");
         }
 
         private void BtnRun_Click(object sender, EventArgs e)
@@ -126,6 +70,67 @@ namespace Servicios1_Ej2
             {
                 txtInfo.Clear();
                 txtInfo.AppendText(txtInput.Text + " no existe. ObjectDisposed");
+            }
+        }
+        public void actividadBtn(string llave)
+        {
+            if (comprobarPID())
+            {
+                Process pr;
+                try
+                {
+                    pr = Process.GetProcessById(Convert.ToInt32(txtInput.Text));
+                    switch (llave)
+                    {
+                        case "info":
+                            txtInfo.Clear();
+                            txtInfo.AppendText("Id: " + pr.Id + Environment.NewLine + "Nombre: " + pr.ProcessName + Environment.NewLine + "Comienzo: " + pr.StartTime);
+                            txtInfo.AppendText(Environment.NewLine + "Tiempo total: " + pr.TotalProcessorTime + Environment.NewLine);
+                            if (pr.Threads.Count > 0)
+                            {
+                                for (int i = 0; i < pr.Threads.Count; i++)
+                                {
+                                    txtInfo.AppendText("********");
+                                    txtInfo.AppendText("ID del subproceso " + (i + 1) + ":" + pr.Threads[i].Id + Environment.NewLine);
+                                    txtInfo.AppendText("Estado: " + pr.Threads[i].ThreadState + Environment.NewLine);
+                                    txtInfo.AppendText("Inicio: " + pr.Threads[i].StartTime + Environment.NewLine);
+                                }
+                            }
+                            break;
+                        case "close":
+                            txtInfo.Clear();
+                            txtInfo.AppendText("Id: " + pr.Id + Environment.NewLine + "Nombre: " + pr.ProcessName + Environment.NewLine + "Comienzo: " + pr.StartTime + Environment.NewLine);
+                            pr.Close();
+                            txtInfo.AppendText("Programa cerrado.");
+                            break;
+                        case "kill":
+                            txtInfo.Clear();
+                            txtInfo.AppendText("Id: " + pr.Id + Environment.NewLine + "Nombre: " + pr.ProcessName + Environment.NewLine + "Comienzo: " + pr.StartTime + Environment.NewLine);
+                            pr.Kill();
+                            txtInfo.AppendText("Programa muerto.");
+                            break;
+                    }
+
+                }
+                catch (ArgumentException)
+                {
+                    txtInfo.Clear();
+                    txtInfo.AppendText("El proceso con PID " + txtInput.Text + " no existe.");
+                }
+                catch (InvalidOperationException)
+                {
+
+                }
+                catch (FormatException)
+                {
+                    txtInfo.Clear();
+                    txtInfo.AppendText("El PID " + txtInput.Text + " introducido no es válido.");
+                }
+                catch (Win32Exception)
+                {
+                    txtInfo.Clear();
+                    txtInfo.AppendText("Este proceso no cuenta con dicha información");
+                }
             }
         }
         public bool comprobarPID()

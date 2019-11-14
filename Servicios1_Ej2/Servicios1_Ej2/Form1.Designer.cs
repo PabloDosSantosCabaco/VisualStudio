@@ -44,7 +44,7 @@
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInfo.Size = new System.Drawing.Size(208, 322);
+            this.txtInfo.Size = new System.Drawing.Size(463, 322);
             this.txtInfo.TabIndex = 0;
             // 
             // txtInput
@@ -56,7 +56,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(444, 42);
+            this.btnView.Location = new System.Drawing.Point(592, 95);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(103, 23);
             this.btnView.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(444, 83);
+            this.btnInfo.Location = new System.Drawing.Point(592, 136);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(97, 23);
             this.btnInfo.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(444, 129);
+            this.btnClose.Location = new System.Drawing.Point(592, 182);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(101, 23);
             this.btnClose.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // btnKill
             // 
-            this.btnKill.Location = new System.Drawing.Point(444, 181);
+            this.btnKill.Location = new System.Drawing.Point(592, 234);
             this.btnKill.Name = "btnKill";
             this.btnKill.Size = new System.Drawing.Size(75, 23);
             this.btnKill.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(444, 234);
+            this.btnRun.Location = new System.Drawing.Point(592, 287);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(75, 23);
             this.btnRun.TabIndex = 6;
