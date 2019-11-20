@@ -17,7 +17,7 @@ namespace Componentes
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -46,7 +46,7 @@ namespace Componentes
                 n2 = Convert.ToInt32(txtColor2.Text);
                 n3 = Convert.ToInt32(txtColor3.Text);
                 if (numValido(n1) && numValido(n2) && numValido(n3)){
-                    this.ForeColor = new Color();
+                    this.BackColor = Color.FromArgb(n1, n2, n3);
                 }
             }
             catch (FormatException)
@@ -67,6 +67,57 @@ namespace Componentes
                 return true;
             }
             return false;
+        }
+
+        private void BtnImg_Click(object sender, EventArgs e)
+        {
+            if (!txtImg.Text.Trim().Equals(""))
+            {
+                try
+                {
+                    lblImgError.ForeColor = Color.FromArgb(255, 0, 0);
+                    lblImg.BackgroundImage = new Bitmap(txtImg.Text);
+                    lblImgError.Text = "";
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    lblImgError.Text = "No se ha podido encontrar la imagen.";
+                }
+                catch (ArgumentException)
+                {
+                    lblImgError.Text = "No se ha podido encontrar la imagen.";
+                }
+            }
+        }
+
+        private void BtnColor_MouseEnter(object sender, EventArgs e)
+        {
+            btnColor.BackColor = Color.Red;
+        }
+
+        private void BtnColor_MouseLeave(object sender, EventArgs e)
+        {
+            btnColor.BackColor = Color.Empty;
+        }
+
+        private void BtnImg_MouseEnter(object sender, EventArgs e)
+        {
+            btnImg.BackColor = Color.Red;
+        }
+
+        private void BtnImg_MouseLeave(object sender, EventArgs e)
+        {
+            btnImg.BackColor = Color.Empty;
+        }
+
+        private void BtnSalir_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.Red;
+        }
+
+        private void BtnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.Empty;
         }
     }
 }

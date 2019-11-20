@@ -22,8 +22,8 @@ namespace Tema3_Ejercicio3
     {
         private string titulo;
         private int anho;
-        private string estilo;
-        public Videojuego(string titulo, int anho, string estilo)
+        private Tipo estilo;
+        public Videojuego(string titulo, int anho, Tipo estilo)
         {
             Titulo = titulo;
             Anho = anho;
@@ -33,10 +33,10 @@ namespace Tema3_Ejercicio3
             }
             else
             {
-                Estilo = Tipo.Arcade.ToString();
+                Estilo = Tipo.Arcade;
             }
         }
-        public string Estilo { get; set; }
+        public Tipo Estilo { get; set; }
         public string Titulo { get; set; }
         public int Anho { set; get; }
     }
@@ -46,37 +46,11 @@ namespace Tema3_Ejercicio3
         public GestorVideojuegos()
         {
             coleccion = new List<Videojuego>();
-            coleccion.Add(new Videojuego("Juego 1", 2002, "Arcade"));
-            coleccion.Add(new Videojuego("Juego 2", 2001, "Deportivo"));
-            coleccion.Add(new Videojuego("Juego 3", 2007, "Shootemup"));
+            coleccion.Insert(0,new Videojuego("Juego 1", 2002, Tipo.Arcade));
+            coleccion.Insert(0,new Videojuego("Juego 2", 2001, Tipo.Deportivo));
+            coleccion.Insert(0,new Videojuego("Juego 3", 2007, Tipo.Shootemup));
         }
-        public bool sortCollection()
-        {
-            List<Videojuego> newList = new List<Videojuego>();
-            if (coleccion.Count <= 0)
-            {
-                return false;
-            }
-            do
-            {
-                int min = coleccion[0].Anho;
-                int indice = 0;
-                for (int i = 0; i < coleccion.Count; i++)
-                {
-                    if (min > coleccion[i].Anho)
-                    {
-                        min = coleccion[i].Anho;
-                        indice = i;
-                    }
-
-                }
-                newList.Add(coleccion[indice]);
-                this.eliminar(indice, 1);
-            } while (coleccion.Count > 0);
-            coleccion = newList;
-            return true;
-            
-        }
+        
         public int posicion(int anho)
         {
             int result = 0;
@@ -109,12 +83,12 @@ namespace Tema3_Ejercicio3
         {
             return eliminar(0, num);
         }
-        public List<Videojuego> busquedaEstilo(string estilo)
+        public List<Videojuego> busquedaEstilo(Tipo estilo)
         {
                 List<Videojuego> nuevaColeccion = new List<Videojuego>();
                 foreach(Videojuego juego in coleccion)
                 {
-                    if (juego.Estilo == "estilo")
+                    if (juego.Estilo == estilo)
                     {
                         nuevaColeccion.Add(juego);
                     }
@@ -127,47 +101,19 @@ namespace Tema3_Ejercicio3
         static GestorVideojuegos gameList = new GestorVideojuegos();
         DelegateMenu[] delegates =
         {
-            addGame, deleteGame, showGames, changeGame, exitApp
+            addGame, deleteGame, showGames, changeGame, showGameByStyle, exitApp
         };
-        string[] menuOptions = new string[] { "Add Game","Delete Game","Show Games","Change Games", "Exit" };
+        string[] menuOptions = new string[] { "Add Game","Delete Game","Show Games","Change Games","Show games by style", "Exit" };
         public static bool exit = false;
         public static void addGame()
         {
-            string name, style;
-            int year;
             try
             {
-                    Console.Write("Introduce videogame's title: ");
-                do
-                {
-                    name = Console.ReadLine();
-                    if(name.Trim().Length == 0)
-                    {
-                        Console.WriteLine("Please, introduce videogame's title: ");
-                    }
-                } while (name.Trim().Length == 0);
-                do
-                {
-                    Console.Write("Introduce year's game: ");
-                    year = Convert.ToInt32(Console.ReadLine());
-                    if (year < 0)
-                    {
-                        Console.WriteLine("Years can't be negative for a videogame's date out.");
-                    }
-                } while (year < 0 || year.ToString().Trim().Length<=0);
-                do
-                {
-                    showTipos();
-                    Console.Write("Introduce style's game: ");
-                    style = Console.ReadLine();
-                    if (!Enum.IsDefined(typeof(Tipo), style))
-                    {
-                        Console.WriteLine("That videogame style is not defined in our database.");
-                    }
-                } while (!Enum.IsDefined(typeof(Tipo), style.Trim()));
+                string name = pedirTitulo();
+                int year = pedirAnho();
+                Tipo aux = pedirEstilo();
 
-                gameList.coleccion.Add(new Videojuego(name, year, style));
-                gameList.sortCollection();
+                gameList.coleccion.Insert(gameList.posicion(year), new Videojuego(name, year, aux));
             }
             catch (FormatException ex)
             {
@@ -175,6 +121,65 @@ namespace Tema3_Ejercicio3
                 Console.WriteLine("Error: "+ex);
             }
             
+        }
+        public static string pedirTitulo()
+        {
+            string name;
+            Console.Write("Introduce videogame's title: ");
+            do
+            {
+                name = Console.ReadLine().Trim();
+                if (name.Length == 0)
+                {
+                    Console.WriteLine("Please, introduce videogame's title: ");
+                }
+            } while (name.Length == 0);
+            return name;
+        }
+        public static int pedirAnho()
+        {
+            int year = 0;
+            bool correcto = false;
+            do
+            {
+                try
+                {
+                    Console.Write("Introduce year's game: ");
+                    year = Convert.ToInt32(Console.ReadLine());
+                    if (year < 0)
+                    {
+                        Console.WriteLine("Years can't be negative for a videogame's date out.");
+                    }
+                    else
+                    {
+                        correcto = true;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Incorrect value to year's game.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow exception, can't process this year.");
+                }
+            } while (!correcto);
+            return year;
+        }
+        public static Tipo pedirEstilo()
+        {
+            String aux;
+            do
+            {
+                showTipos();
+                Console.Write("Introduce style's game: ");
+                aux = Console.ReadLine().Trim();
+                if (!Enum.IsDefined(typeof(Tipo), aux))
+                {
+                    Console.WriteLine("That videogame style is not defined in our database.");
+                }
+            } while (!Enum.IsDefined(typeof(Tipo), aux));
+            return (Tipo)Enum.Parse(typeof(Tipo), aux);
         }
         public static void deleteGame()
         {
@@ -206,11 +211,11 @@ namespace Tema3_Ejercicio3
                     {
                         Console.WriteLine("-" + gameList.coleccion[min + i].Titulo);
                     }
-                    Console.WriteLine("Are you sure about delete this games?(S/N) You can't undo this action.");
+                    Console.WriteLine("Are you sure about delete this games?(Y/N) You can't undo this action.");
                     confirm = Console.ReadLine().ToLower();
                     switch (confirm)
                     {
-                        case "s":
+                        case "y":
                             if(gameList.eliminar(min, max))
                             {
                                 Console.WriteLine("Games deleted.");
@@ -243,7 +248,7 @@ namespace Tema3_Ejercicio3
         public static void showGames()
         {
             int maxLength = 15;
-            if (!gameList.sortCollection())
+            if (gameList.coleccion.Count<=0)
             {
                 Console.WriteLine("The collection is empty.");
             }
@@ -280,6 +285,45 @@ namespace Tema3_Ejercicio3
             }
             gameList.eliminar(opt, 1);
             addGame();
+        }
+        public static void showGameByStyle()
+        {
+            int maxLength = 15;
+            if (gameList.coleccion.Count<=0)
+            {
+                Console.WriteLine("The collection is empty.");
+            }
+            else
+            {
+                Tipo aux = pedirEstilo();
+                int contador = 1;
+                for (int i = 0; i < gameList.coleccion.Count; i++)
+                {
+                    if (gameList.coleccion[i].Estilo == aux)
+                    {
+                        Console.WriteLine("Game " + contador) ;
+                        contador++;
+                        if (gameList.coleccion[i].Titulo.Length > maxLength)
+                        {
+                            Console.WriteLine("Title: " + gameList.coleccion[i].Titulo.Substring(0, maxLength - 3) + "...");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Title: " + gameList.coleccion[i].Titulo);
+                        }
+                        Console.WriteLine("Year: " + gameList.coleccion[i].Anho);
+                        Console.WriteLine("Genre: " + gameList.coleccion[i].Estilo);
+                        if (i != gameList.coleccion.Count - 1)
+                        {
+                            Console.WriteLine("----------------------------");
+                        }
+                    }
+                }
+                if (contador <= 1)
+                {
+                    Console.WriteLine("No games with that style");
+                }
+            }
         }
         public static void exitApp()
         {

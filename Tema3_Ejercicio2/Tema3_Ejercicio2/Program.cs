@@ -24,7 +24,7 @@ namespace Tema3_Ejercicio2
             Aula aula = new Aula();
             bool salir = false;
             int opcion = 0;
-            int max = 0, min=0;
+            int max = 0, min = 0;
             do
             {
                 Console.WriteLine("1.Calcular media de la tabla.");
@@ -39,21 +39,29 @@ namespace Tema3_Ejercicio2
                 try
                 {
                     opcion = Convert.ToInt32(Console.ReadLine());
-                }catch(FormatException)
+                }
+                catch (FormatException)
                 {
                     Console.WriteLine("Incorrect value");
                 }
-                switch(opcion){
+                switch (opcion)
+                {
                     case 1:
-                        Console.WriteLine("La media global es de {0}",aula.mediaGlobal());
+                        Console.WriteLine("La media global es de {0}", aula.mediaGlobal());
                         break;
                     case 2:
                         opcion = mostrarAlumnos(alumnos);
-                        if (opcion >= 0){Console.WriteLine("La media del alumno {0} es de {1}", alumnos[opcion], aula.mediaAlumno(opcion));}
+                        if (opcion >= 0)
+                        {
+                            Console.WriteLine("La media del alumno {0} es de {1}", alumnos[opcion], aula.mediaAlumno(opcion));
+                        }
                         break;
                     case 3:
                         opcion = mostrarAsignaturas();
-                        if (opcion >= 0){Console.WriteLine("La media de la asignatura {0} es de {1}", Enum.GetNames(typeof(asignaturas))[opcion], aula.mediaAignatura(opcion));}
+                        if (opcion >= 0)
+                        {
+                            Console.WriteLine("La media de la asignatura {0} es de {1}", Enum.GetNames(typeof(asignaturas))[opcion], aula.mediaAignatura(opcion));
+                        }
                         break;
                     case 4:
                         opcion = mostrarAlumnos(alumnos);
@@ -77,7 +85,7 @@ namespace Tema3_Ejercicio2
                         break;
                     case 6:
                         opcion = mostrarAlumnos(alumnos);
-                        if(opcion >= 0)
+                        if (opcion >= 0)
                         {
                             aula.notaMaxMin(opcion, ref max, ref min);
                             Console.WriteLine("La nota máxima del alumno {0} es de {1} y su nota mínima es de {2}.", alumnos[opcion], max, min);
@@ -103,13 +111,13 @@ namespace Tema3_Ejercicio2
                     case 8:
                         for (int i = 0; i < Enum.GetValues(typeof(asignaturas)).Length; i++)
                         {
-                            Console.Write("\t"+Enum.GetName(typeof(asignaturas), i).Substring(0,5));
+                            Console.Write("\t" + Enum.GetName(typeof(asignaturas), i).Substring(0, 5));
                         }
                         Console.WriteLine();
-                        for(int i=0; i<aula.Notas.GetLength(0); i++)
+                        for (int i = 0; i < aula.Notas.GetLength(0); i++)
                         {
                             Console.Write(alumnos[i] + "\t");
-                            for (int j=0; j<aula.Notas.GetLength(1); j++)
+                            for (int j = 0; j < aula.Notas.GetLength(1); j++)
                             {
                                 Console.Write(aula.Notas[i, j] + "\t");
                             }
@@ -118,7 +126,7 @@ namespace Tema3_Ejercicio2
                         break;
                     case 9:
                         salir = true;
-                        Console.WriteLine("Goodbye!"); 
+                        Console.WriteLine("Goodbye!");
                         break;
                     default:
                         Console.WriteLine("Incorrect value. Please, choose a number of the list.");
@@ -136,7 +144,7 @@ namespace Tema3_Ejercicio2
                 Console.WriteLine("{0}.{1}", i, Enum.GetNames(typeof(asignaturas))[i]);
             }
             opcion = Convert.ToInt32(Console.ReadLine());
-            if (opcion < 0 || opcion > Enum.GetValues(typeof(asignaturas)).Length-1)
+            if (opcion < 0 || opcion > Enum.GetValues(typeof(asignaturas)).Length - 1)
             {
                 Console.WriteLine("Valor incorrecto. Escoja uno de la lista por favor.");
                 return -1;
@@ -152,14 +160,14 @@ namespace Tema3_Ejercicio2
                 Console.WriteLine("{0}.{1}", i, alumnos[i]);
             }
             opcion = Convert.ToInt32(Console.ReadLine());
-            if (opcion < 0 || opcion > alumnos.Length-1)
+            if (opcion < 0 || opcion > alumnos.Length - 1)
             {
                 Console.WriteLine("Valor incorrecto. Escoja uno de la lista por favor.");
                 return -1;
             }
             return opcion;
         }
-        
+
     }
     class Aula
     {
@@ -173,9 +181,9 @@ namespace Tema3_Ejercicio2
         {
             double media = 0;
 
-            for(int i=0; i<notas.GetLength(0); i++)
+            for (int i = 0; i < notas.GetLength(0); i++)
             {
-                for(int j=0; j<notas.GetLength(1); j++)
+                for (int j = 0; j < notas.GetLength(1); j++)
                 {
                     media += notas[i, j];
                 }
@@ -189,9 +197,9 @@ namespace Tema3_Ejercicio2
             double media = 0;
             for (int i = 0; i < notas.GetLength(0); i++)
             {
-                media += notas[i,alumno];
+                media += notas[i, alumno];
             }
-            media = media /notas.GetLength(0);
+            media = media / notas.GetLength(0);
             return media;
         }
         public double mediaAignatura(int asignatura)
@@ -199,7 +207,7 @@ namespace Tema3_Ejercicio2
             double media = 0;
             for (int i = 0; i < notas.GetLength(1); i++)
             {
-                media += notas[asignatura,i];
+                media += notas[asignatura, i];
             }
             media = media / notas.GetLength(1);
             return media;
@@ -207,7 +215,7 @@ namespace Tema3_Ejercicio2
         public int[] verNotasAlumno(int alumno)
         {
             int[] notasAlumno = new int[notas.GetLength(1)];
-            for(int i=0; i< notasAlumno.Length; i++)
+            for (int i = 0; i < notasAlumno.Length; i++)
             {
                 notasAlumno[i] = notas[alumno, i];
             }
@@ -240,10 +248,10 @@ namespace Tema3_Ejercicio2
         public int[,] tablaAprobados(ref List<int> indicesAprobados)
         {
             indicesAprobados = new List<int>();
-            int contador=0, contadorAprobados = 0;
-            for(int i=0; i < notas.GetLength(0); i++)
+            int contador = 0, contadorAprobados = 0;
+            for (int i = 0; i < notas.GetLength(0); i++)
             {
-                for(int j=0; j<notas.GetLength(1); j++)
+                for (int j = 0; j < notas.GetLength(1); j++)
                 {
                     if (notas[i, j] >= 5)
                     {
