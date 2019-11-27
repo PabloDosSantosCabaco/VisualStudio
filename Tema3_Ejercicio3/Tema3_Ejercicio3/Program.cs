@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tema3_Ejercicio3
+
+    // Directiva de compilación
+    // Menú enumerados
+    // Control de errores al cambiar juego
 {
     public class OutOfMenuRangeException : Exception { }
 

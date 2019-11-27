@@ -1,6 +1,6 @@
 ﻿namespace Tema4_Ejercicio3
 {
-    partial class Form1
+    partial class formulario3
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,43 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.btnFile = new System.Windows.Forms.Button();
-            this.chkbModal = new System.Windows.Forms.CheckBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formulario3));
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.chkBoxModal = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // btnFile
+            // btnOpen
             // 
-            this.btnFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile.Location = new System.Drawing.Point(256, 247);
-            this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(264, 61);
-            this.btnFile.TabIndex = 0;
-            this.btnFile.Text = "Choose image";
-            this.btnFile.UseVisualStyleBackColor = true;
-            this.btnFile.Click += new System.EventHandler(this.BtnFile_Click);
+            this.btnOpen.Location = new System.Drawing.Point(89, 67);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 0;
+            this.btnOpen.Text = "Imagen";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
-            // chkbModal
+            // chkBoxModal
             // 
-            this.chkbModal.AutoSize = true;
-            this.chkbModal.Location = new System.Drawing.Point(336, 335);
-            this.chkbModal.Name = "chkbModal";
-            this.chkbModal.Size = new System.Drawing.Size(55, 17);
-            this.chkbModal.TabIndex = 1;
-            this.chkbModal.Text = "Modal";
-            this.chkbModal.UseVisualStyleBackColor = true;
+            this.chkBoxModal.AutoSize = true;
+            this.chkBoxModal.Location = new System.Drawing.Point(183, 71);
+            this.chkBoxModal.Name = "chkBoxModal";
+            this.chkBoxModal.Size = new System.Drawing.Size(55, 17);
+            this.chkBoxModal.TabIndex = 1;
+            this.chkBoxModal.Text = "Modal";
+            this.chkBoxModal.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // formulario3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.chkbModal);
-            this.Controls.Add(this.btnFile);
+            this.ClientSize = new System.Drawing.Size(352, 169);
+            this.Controls.Add(this.chkBoxModal);
+            this.Controls.Add(this.btnOpen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "formulario3";
+            this.Text = "Visor de imagenes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Formulario3_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,8 +71,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnFile;
-        private System.Windows.Forms.CheckBox chkbModal;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.CheckBox chkBoxModal;
     }
 }
 

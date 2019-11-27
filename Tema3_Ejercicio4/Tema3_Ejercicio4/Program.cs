@@ -11,7 +11,8 @@ namespace Tema3_Ejercicio4
         static void Main(string[] args)
         {
             string cadena = "* 3 2 10";
-            string[] datos = cadena.Split((char)32);
+            string[] datos = args; // cadena.Split((char)32);
+            gestionador(args[0],)
             List<int> nums = new List<int>();
             bool correct = true;
             for(int i=1; i<datos.Length; i++)
@@ -26,27 +27,40 @@ namespace Tema3_Ejercicio4
                     nums.Add(Convert.ToInt32(datos[i]));
                 }
             }
-            int[] newnums = new int[nums.Count];
-            for(int i=0; i<newnums.Length; i++)
+        }
+        public static void gestionador(string simbolo, params int[] nums)
+        {
+            for (int i = 1; i < datos.Length; i++)
+            {
+                correct = comprobarEntero(datos[i]);
+                if (!correct)
+                {
+                    break;
+                }
+                else
+                {
+                    nums.Add(Convert.ToInt32(datos[i]));
+                }
+            }
+            int[] newnums = new int[nums.Length];
+            for (int i = 0; i < newnums.Length; i++)
             {
                 newnums[i] = nums[i];
             }
-            if (correct)
+            switch (simbolo)
             {
-                switch (datos[0])
-                {
-                    case "+":
-                        Console.WriteLine(suma(newnums));
-                        break;
-                    case "*":
-                        Console.WriteLine(mult(newnums));
-                        break;
-                    default:
-                        break;
-                }
+                case "+":
+                    Console.WriteLine(suma(newnums));
+                    break;
+                case "*":
+                    Console.WriteLine(mult(newnums));
+                    break;
+                default:
+                    break;
             }
             Console.ReadKey();
         }
+
         public static bool comprobarSigno(string dato)
         {
             if (dato.Equals("+") || dato.Equals("*"))
