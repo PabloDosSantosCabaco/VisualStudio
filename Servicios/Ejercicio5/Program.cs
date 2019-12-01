@@ -60,7 +60,7 @@ namespace Ejercicio5
                                     del();
                                 }
                             }
-                        };
+                        }
                     });
                 hilo.Start();
                 lock (l)
@@ -69,7 +69,6 @@ namespace Ejercicio5
                 }
             }
             public void start() {
-                finish = false;
                 espera = false;
                 lock (l)
                 {
@@ -78,7 +77,6 @@ namespace Ejercicio5
             }
             public void stop()
             {
-                finish = true;
                 espera = true;
                 
             }

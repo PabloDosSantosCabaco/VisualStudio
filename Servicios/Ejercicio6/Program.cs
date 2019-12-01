@@ -79,7 +79,7 @@ namespace Ejercicio6
                             }
                         }
                         Console.SetCursorPosition(10, 5);
-                        Console.Write(contador);
+                        Console.Write("{0,3}",contador);
                     }
                 }
             }

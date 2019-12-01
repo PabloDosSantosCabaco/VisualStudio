@@ -33,7 +33,6 @@ namespace Tema4_Ejercicio3
             pBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pBox.Height = this.ClientSize.Height;
             pBox.Width = this.ClientSize.Width;
-                ;
         }
     }
 }
