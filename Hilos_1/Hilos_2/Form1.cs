@@ -23,10 +23,20 @@ namespace Hilos_2
         {
             txtInfo.Clear();
             Process[] procesos = Process.GetProcesses();
-            txtInfo.AppendText("PID\tNombre\tVentana" + Environment.NewLine);
+            txtInfo.AppendText("PID\tNombre\t\tVentana" + Environment.NewLine);
             foreach (var p in procesos)
             {
-                txtInfo.AppendText($"{p.Id}\t{p.ProcessName}\t{p.MainWindowTitle}" + Environment.NewLine);
+                txtInfo.AppendText($"{p.Id}\t");
+                string aux;
+                if(p.ProcessName.Length > 15)
+                {
+                    aux = p.ProcessName.Substring(0, 12) + "...";
+                }
+                else
+                {
+                    aux = p.ProcessName;
+                }
+                txtInfo.AppendText($"{aux}\t\t{p.MainWindowTitle}" + Environment.NewLine);
             }
         }
 
@@ -69,6 +79,11 @@ namespace Hilos_2
             catch (FormatException)
             {
                 lblErrorPID.Text = "El valor introducido no es válido.";
+            }
+            catch (Win32Exception)
+            {
+                txtInfo.Clear();
+                lblErrorPID.Text = "No se puede acceder a dicho proceso.";
             }
         }
         public bool comprobarProceso(int pid)
@@ -136,8 +151,15 @@ namespace Hilos_2
         {
             try
             {
-                Process.Start(txtPID.Text);
-                lblErrorPID.Text = "";
+                if (txtPID.Text.Trim().Equals(""))
+                {
+                    lblErrorPID.Text = "Campo vacío. Introduca un PID.";
+                }
+                else
+                {
+                    Process.Start(txtPID.Text);
+                    lblErrorPID.Text = "";
+                }
             }
             catch (FileNotFoundException)
             {

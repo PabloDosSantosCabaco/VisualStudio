@@ -72,6 +72,7 @@ namespace Ejercicio4
                     {
                         hilos[i].Start();
                     }
+
                     Monitor.Wait(l);
                     Console.WriteLine("¿Desea volver a jugar?\n1.-Si\n2.-No");
                     try

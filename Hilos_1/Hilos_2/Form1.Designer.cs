@@ -40,24 +40,25 @@
             // 
             // txtInfo
             // 
+            this.txtInfo.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo.Location = new System.Drawing.Point(44, 60);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInfo.Size = new System.Drawing.Size(292, 342);
+            this.txtInfo.Size = new System.Drawing.Size(454, 342);
             this.txtInfo.TabIndex = 0;
             // 
             // txtPID
             // 
-            this.txtPID.Location = new System.Drawing.Point(459, 89);
+            this.txtPID.Location = new System.Drawing.Point(621, 89);
             this.txtPID.Name = "txtPID";
             this.txtPID.Size = new System.Drawing.Size(100, 20);
             this.txtPID.TabIndex = 1;
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(342, 60);
+            this.btnView.Location = new System.Drawing.Point(504, 60);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(111, 23);
             this.btnView.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(342, 89);
+            this.btnInfo.Location = new System.Drawing.Point(504, 89);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(111, 23);
             this.btnInfo.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(342, 118);
+            this.btnClose.Location = new System.Drawing.Point(504, 118);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 23);
             this.btnClose.TabIndex = 4;
@@ -87,7 +88,7 @@
             // 
             // btnKill
             // 
-            this.btnKill.Location = new System.Drawing.Point(342, 147);
+            this.btnKill.Location = new System.Drawing.Point(504, 147);
             this.btnKill.Name = "btnKill";
             this.btnKill.Size = new System.Drawing.Size(111, 23);
             this.btnKill.TabIndex = 5;
@@ -97,7 +98,7 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(342, 176);
+            this.btnRun.Location = new System.Drawing.Point(504, 176);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(111, 23);
             this.btnRun.TabIndex = 6;
@@ -109,7 +110,7 @@
             // 
             this.lblErrorPID.AutoSize = true;
             this.lblErrorPID.ForeColor = System.Drawing.Color.Crimson;
-            this.lblErrorPID.Location = new System.Drawing.Point(566, 95);
+            this.lblErrorPID.Location = new System.Drawing.Point(748, 97);
             this.lblErrorPID.Name = "lblErrorPID";
             this.lblErrorPID.Size = new System.Drawing.Size(0, 13);
             this.lblErrorPID.TabIndex = 7;

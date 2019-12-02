@@ -9,9 +9,13 @@ namespace Hilos_6
 {
     class Program
     {
-        int meta1 = 20;
-        int meta2 = -20;
+        bool firstTime = true;
+        int limitMax = 20;
+        int limitMin = -20;
+        static int N1 = 0;
+        static int N2 = 0;
         int contador = 0;
+        bool finish = false;
         bool pausa = false;
         static readonly object l = new object();
         Random number = new Random();
@@ -19,76 +23,78 @@ namespace Hilos_6
         {
             Program p = new Program();
             Thread player1 = new Thread(()=> {
-                int num=1;
-                while (p.contador < p.meta1 && p.contador>p.meta2)
-                {
-                    lock (l)
-                    {
-                        num = p.number.Next(1, 11);
-                        Console.SetCursorPosition(1, 1);
-                        Console.WriteLine($"{num,2}");
-                        if ((num == 5 || num == 7) && p.pausa)
-                        {
-                            p.contador += 5;
-                        }
-                        else if (num == 5 || num == 7)
-                        {
-                            p.contador++;
-                            p.pausa = true;
-                        }
-                        Console.SetCursorPosition(1, 5);
-                        Console.WriteLine($"{p.contador,3}");
-                    }
-                    Thread.Sleep(p.number.Next(100, 100 * num));
-                }
+                p.jugador(1,ref N1);
             });
             Thread player2 = new Thread(() => {
-                int num = 1;
-                while (p.contador > p.meta2 && p.contador < p.meta1)
-                {
-                    lock (l)
-                    {
-                        num = p.number.Next(1, 11);
-                        Console.SetCursorPosition(1, 10);
-                        Console.WriteLine($"{num,2}");
-                        if ((num == 5 || num == 7) && !p.pausa)
-                        {
-                            p.contador -= 5;
-                        }
-                        else if (num == 5 || num == 7)
-                        {
-                            p.pausa = false;
-                            p.contador--;
-                        }
-                        Console.SetCursorPosition(1, 5);
-                        Console.WriteLine($"{p.contador,3}");
-                    }
-                    Thread.Sleep(p.number.Next(100, 100 * num));
-                }
+                p.jugador(2,ref N2);
             });
-            Thread display = new Thread(()=> {
-                bool color = false;
-                while (p.contador<p.meta1 && p.contador > p.meta2)
-                {
-                    lock (l)
-                    {
-                        if (!p.pausa)
-                        {
-                            Console.SetCursorPosition(20, 5);
-                            Console.BackgroundColor = color ? ConsoleColor.Red : ConsoleColor.Yellow;
-                            color = !color;
-                            Console.Write("ETIQUETA");
-                            Console.BackgroundColor = ConsoleColor.Black;
-                        }
-                    }
-                    Thread.Sleep(200);
-                }
+            Thread displayThread = new Thread(()=> {
+                p.display();
             });
             player1.Start();
             player2.Start();
-            display.Start();
+            displayThread.Start();
+            player1.Join();
+            player2.Join();
+            displayThread.Join();
             Console.ReadKey();
 
+        }
+        public void jugador(int jugador,ref int numero){
+            while(!finish){
+                lock(l){
+                    numero = number.Next(1,11);
+                  //  Console.SetCursorPosition(1,jugador);
+                    Console.WriteLine($"{jugador}{numero,2}");
+                    if (numero == 5 || numero == 7)
+                    {
+                        switch (jugador)
+                        {
+                            case 1:
+                                contador=contador+ (pausa ? 5: 1);
+                                pausa = true;
+                                break;
+                            case 2:
+                                contador = contador-(!pausa && !firstTime? 5: 1);
+                                pausa = false;
+                                Monitor.Pulse(l);
+                                break;
+                        }
+                    }
+                    firstTime = false;
+                    //   Console.SetCursorPosition(1, 5);
+                    Console.WriteLine($"Contador: {contador,3}");
+                    if (contador <= limitMin || contador >= limitMax)
+                    {
+                        finish = true;
+                    }
+                }
+                Thread.Sleep(number.Next(100,100+numero));
+            }
+
+        }
+        public void display(){
+            bool color = false;
+            while (contador < limitMax && contador > limitMin)
+            {
+                lock (l)
+                {
+                    if (contador < limitMax && contador > limitMin)
+                    {
+                      //  Console.SetCursorPosition(20, 5);
+                        Console.BackgroundColor = color ? ConsoleColor.Red : ConsoleColor.Yellow;
+                        color = !color;
+                        Console.WriteLine("ETIQUETA");
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        if (pausa)
+                        {
+                            Monitor.Wait(l);
+                        }
+                        
+                    }
+                }
+                Thread.Sleep(200);
+            }
         }
     }
 }

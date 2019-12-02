@@ -38,7 +38,7 @@ namespace Hilos_4
                 {
                     if (!finish)
                     {
-                        int aux = number.Next(1, 3);
+                        int aux = 1;//number.Next(1, 3);
                         Console.SetCursorPosition(pos, caballo);
                         for(int i=0; i<aux; i++)
                         {
@@ -53,7 +53,7 @@ namespace Hilos_4
                         }
                     }
                 }
-                Thread.Sleep(number.Next(1, 500));
+                Thread.Sleep(30);//number.Next(1, 500));
             }
         }
     }

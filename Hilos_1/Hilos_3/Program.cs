@@ -27,7 +27,7 @@ namespace Hilos_3
                         {
                             p.aumentar();
                             Console.SetCursorPosition(1, 1);
-                            Console.WriteLine($"{p.valor,5}");
+                            Console.WriteLine($"{p.valor,5} Hilo 1");
                             if (p.valor >= p.limitUp)
                             {
                                 p.finish = true;
@@ -45,7 +45,7 @@ namespace Hilos_3
                         {
                             p.decrementar();
                             Console.SetCursorPosition(1, 10);
-                            Console.WriteLine($"{p.valor,5}");
+                            Console.WriteLine($"{p.valor,5} Hilo 2");
                             if (p.valor <= p.limitDown)
                             {
                                 p.finish = true;
