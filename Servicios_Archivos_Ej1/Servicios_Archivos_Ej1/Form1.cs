@@ -47,6 +47,10 @@ namespace Servicios_Archivos_Ej1
             {
                 error = true;
             }
+            catch (ArgumentException)
+            {
+                error = true;
+            }
             if (error)
             {
                 lblErrores.Text = "Este directorio no existe.";
