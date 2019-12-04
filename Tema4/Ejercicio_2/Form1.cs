@@ -1,6 +1,4 @@
-﻿#define TECLA_
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tema4_Ejercicio2
+namespace Ejercicio_2
 {
     public partial class Form1 : Form
     {
@@ -21,11 +19,11 @@ namespace Tema4_Ejercicio2
             InitializeComponent();
         }
 
-        
+
         //TITULO COORDENADAS
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = "Mouse Tester X:"+e.X + " Y:"+ e.Y;
+            this.Text = "Mouse Tester X:" + e.X + " Y:" + e.Y;
             x = e.X;
             y = e.Y;
         }
@@ -42,7 +40,7 @@ namespace Tema4_Ejercicio2
 
         private void BtnR_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = "Mouse Tester X:" + (x+e.X) + " Y:" + (y+e.Y);
+            this.Text = "Mouse Tester X:" + (x + e.X) + " Y:" + (y + e.Y);
         }
 
         private void BtnL_MouseMove(object sender, MouseEventArgs e)
@@ -65,7 +63,8 @@ namespace Tema4_Ejercicio2
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-#if !TECLA
+#if TECLA
+#else
             Text = e.KeyCode.ToString();
 #endif
 
@@ -76,7 +75,8 @@ namespace Tema4_Ejercicio2
             if (e.Button == MouseButtons.Left)
             {
                 btnL.BackColor = Color.Red;
-            }else if(e.Button == MouseButtons.Right)
+            }
+            else if (e.Button == MouseButtons.Right)
             {
                 btnR.BackColor = Color.Red;
             }
@@ -89,7 +89,6 @@ namespace Tema4_Ejercicio2
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            if()
             btnL.BackColor = Color.Empty;
             btnR.BackColor = Color.Empty;
         }
@@ -97,10 +96,10 @@ namespace Tema4_Ejercicio2
         //CONFIRMAR SALIDA
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Seguro que quieres salir?","Confirmar salida",
+            if (MessageBox.Show("Seguro que quieres salir?", "Confirmar salida",
                 MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Question
-                )==DialogResult.Cancel)
+                ) == DialogResult.Cancel)
             {
                 e.Cancel = true;
             }
