@@ -1,4 +1,4 @@
-﻿namespace Ejercicio_2
+﻿namespace Ejercicio_1
 {
     partial class Form1
     {
@@ -35,9 +35,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnL;
-        private System.Windows.Forms.Button btnR;
     }
 }
 
