@@ -89,7 +89,6 @@ namespace Tema4_Ejercicio2
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            if()
             btnL.BackColor = Color.Empty;
             btnR.BackColor = Color.Empty;
         }

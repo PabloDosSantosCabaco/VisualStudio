@@ -1,0 +1,6 @@
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\bin\Debug\Ejercicio5.exe.config
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\bin\Debug\Ejercicio5.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\bin\Debug\Ejercicio5.pdb
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\obj\Debug\Ejercicio5.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\obj\Debug\Ejercicio5.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio5\obj\Debug\Ejercicio5.pdb

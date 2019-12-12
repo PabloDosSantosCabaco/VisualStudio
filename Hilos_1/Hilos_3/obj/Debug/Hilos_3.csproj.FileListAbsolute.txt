@@ -1,0 +1,5 @@
+C:\Users\pablo\source\repos\Hilos_1\Hilos_3\bin\Debug\Hilos_3.exe.config
+C:\Users\pablo\source\repos\Hilos_1\Hilos_3\bin\Debug\Hilos_3.exe
+C:\Users\pablo\source\repos\Hilos_1\Hilos_3\bin\Debug\Hilos_3.pdb
+C:\Users\pablo\source\repos\Hilos_1\Hilos_3\obj\Debug\Hilos_3.exe
+C:\Users\pablo\source\repos\Hilos_1\Hilos_3\obj\Debug\Hilos_3.pdb

@@ -1,0 +1,9 @@
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\bin\Debug\Servicios_Archivos_Ej1.exe.config
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\bin\Debug\Servicios_Archivos_Ej1.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\bin\Debug\Servicios_Archivos_Ej1.pdb
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.Form1.resources
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.Properties.Resources.resources
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.csproj.GenerateResource.cache
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios_Archivos_Ej1\Servicios_Archivos_Ej1\obj\Debug\Servicios_Archivos_Ej1.pdb
