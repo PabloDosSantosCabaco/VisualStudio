@@ -1,0 +1,8 @@
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\bin\Debug\Tema4.exe.config
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\bin\Debug\Tema4.exe
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\bin\Debug\Tema4.pdb
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\obj\Debug\Tema4.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\obj\Debug\Tema4.Properties.Resources.resources
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\obj\Debug\Tema4.csproj.GenerateResource.cache
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\obj\Debug\Tema4.exe
+C:\Users\pablo\source\repos\VisualStudio\Tema4\Tema4\obj\Debug\Tema4.pdb

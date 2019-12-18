@@ -1,0 +1,9 @@
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\bin\Debug\Hilos_6.exe.config
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\bin\Debug\Hilos_6.exe
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\bin\Debug\Hilos_6.pdb
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\obj\Debug\Hilos_6.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\obj\Debug\Hilos_6.exe
+C:\Users\pablo\source\repos\Hilos_1\Hilos_6\obj\Debug\Hilos_6.pdb
+C:\Users\pablo\source\repos\VisualStudio\Hilos_1\Hilos_6\obj\Debug\Hilos_6.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\VisualStudio\Hilos_1\Hilos_6\obj\Debug\Hilos_6.exe
+C:\Users\pablo\source\repos\VisualStudio\Hilos_1\Hilos_6\obj\Debug\Hilos_6.pdb

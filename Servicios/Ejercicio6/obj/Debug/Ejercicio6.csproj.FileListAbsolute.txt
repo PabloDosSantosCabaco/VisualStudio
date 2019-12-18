@@ -1,0 +1,6 @@
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\bin\Debug\Ejercicio6.exe.config
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\bin\Debug\Ejercicio6.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\bin\Debug\Ejercicio6.pdb
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\obj\Debug\Ejercicio6.csprojAssemblyReference.cache
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\obj\Debug\Ejercicio6.exe
+C:\Users\pablo\source\repos\VisualStudio\Servicios\Ejercicio6\obj\Debug\Ejercicio6.pdb
