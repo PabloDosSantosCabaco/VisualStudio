@@ -1,7 +1,0 @@
-C:\Users\Pablo\source\repos\Servicios\Servicios\bin\Debug\Servicios.exe.config
-C:\Users\Pablo\source\repos\Servicios\Servicios\bin\Debug\Servicios.exe
-C:\Users\Pablo\source\repos\Servicios\Servicios\bin\Debug\Servicios.pdb
-C:\Users\Pablo\source\repos\Servicios\Servicios\obj\Debug\Servicios.csprojAssemblyReference.cache
-C:\Users\Pablo\source\repos\Servicios\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
-C:\Users\Pablo\source\repos\Servicios\Servicios\obj\Debug\Servicios.exe
-C:\Users\Pablo\source\repos\Servicios\Servicios\obj\Debug\Servicios.pdb
